@@ -56,11 +56,6 @@ const { generatePhoneNumber } = require('generater.js');
 // Generate phone numbers for different countries
 const egyptPhoneNumber = generatePhoneNumber('EGYPT');
 const usaPhoneNumber = generatePhoneNumber('USA');
-const ukPhoneNumber = generatePhoneNumber('UK');const { generatePhoneNumber } = require('generater.js');
-
-// Generate phone numbers for different countries
-const egyptPhoneNumber = generatePhoneNumber('EGYPT');
-const usaPhoneNumber = generatePhoneNumber('USA');
 const ukPhoneNumber = generatePhoneNumber('UK');
 ```
 Random Color Generation

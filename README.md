@@ -1,4 +1,4 @@
-# Generate.js
+# Generater.js
 
 A powerful Node.js library for generating various types of random data, including keys, passwords, phone numbers, emails, and more.
 

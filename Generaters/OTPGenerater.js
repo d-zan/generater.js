@@ -80,7 +80,6 @@ function generateOTP(options) {
             };
         },
         getRemainingTime: function() {
-            // Calculate remaining time
             const now = new Date();
             const remainingTime = this.expiresAt.getTime() - now.getTime();
             return Math.max(0, Math.floor(remainingTime / 1000)); // in seconds
@@ -91,7 +90,7 @@ function generateOTP(options) {
 /**
  * Verify OTP
  * @param {import('../types/Generater').OTPResult} otpObject 
- * @param {string} inputOTP 
+ * @param {string} inputOTP
  * @returns {import('../types/Generater').OTPVerificationResult}
  */
 function verifyOTP(otpObject, inputOTP) {

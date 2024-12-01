@@ -15,7 +15,7 @@ const {
   whiteRGB,
 } = require("../types/colors");
 /**
- * @param "Generate colors."
+ * That function will give you random color. You can choice color and HEX or RGB.
  * @param {import("../types/Random").ColorsSupport} color - The colors support.
  * @param {import("../types/Random").HEX_RGB} HexOrRGB - type color Hex or RGB.
  * @returns {string}

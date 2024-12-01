@@ -34,8 +34,8 @@ const key = generateKey(32, {
     inSpace: '-'
   },
   startWith: {
-    startWith: false,
-    text: ''
+    startWith: true,
+    text: 'Blacklist_'
   }
 });
 console.log(key); // Outputs a random key
@@ -62,9 +62,9 @@ Random Color Generation
 ```js
 const { generateColor } = require('generater.js');
 
-// Generate random colors in HEX or RGB
-const blueHexColor = generateColor('BLUE', 'HEX');
-const calmRGBColor = generateColor('CALM', 'RGB');
+// Generate random colors HEX or RGB
+const blueHexColor = generateColor('BLUE', 'HEX'); ///#color_hex
+const calmRGBColor = generateColor('CALM', 'RGB'); ///rgb(r,g,b)
 ```
 
 
@@ -75,14 +75,12 @@ OTP (One-Time Password) Generation
 const { generateOTP, verifyOTP } = require('generater.js');
 
 // Generate OTP
-const otpOptions = {
+const otpResult = generateOTP({
   length: 6,
   includeLetters: false,
   includeSpecialChars: false,
   expirationTime: 5 // 5 minutes
-};
-
-const otpResult = generateOTP(otpOptions);
+});
 console.log(otpResult.otp);
 
 // Verify OTP
@@ -111,13 +109,14 @@ console.log(verificationResult.valid);
 - GREEN
 - BLUE
 ###  Password Power Levels
-- LOW
-- MEDIUM
-- HIGH
+- Low
+- Medium
+- High
 
 ## Developer
 **Y.Karm (DZAN)**
 - [GitHub](https://github.com/d-zan)
-- [npm](https://www.npmjs.com/~dzan)
+- [npm](https://npmjs.com/~dzan)
 - [Twitter / X](https://x.com/_dz4n)
-- [Tiktok](https://www.tiktok.com/@i.dzan)
+- [Tiktok](https://tiktok.com/@i.dzan)
+- [Discord](https://discord.com/users/776359293276258315)

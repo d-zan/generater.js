@@ -1,5 +1,11 @@
 const crypto = require("crypto");
-const randomNumber = (min=0, max=10) => {
+/**
+ * Random number from , to
+ * @param {number} min - from
+ * @param {number} max - to
+ * @returns {number}
+ */
+function randomNumber(min, max){
     const numbers = crypto.randomBytes(4);
     const buffer = Buffer.from(numbers);
     const number = buffer.readUInt32BE(0);

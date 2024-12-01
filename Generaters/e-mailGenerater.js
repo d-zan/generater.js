@@ -1,12 +1,5 @@
 const { randomInt } = require("crypto");
-{
-  (prefix = "user"),
-    (domains = ["gmail.com", "yahoo.com", "hotmail.com"]),
-    (addNumber = false),
-    (randomizePrefix = false),
-    (prefixOptions = []),
-    (numberRange = { min: 1, max: 99 });
-}
+
 /**
  *
  * @param {import("../types/Generater").EmailOptions} options

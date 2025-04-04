@@ -18,74 +18,24 @@ npm install generater.js
 - One-Time Password (OTP) Generation
 - And More!
 
-## Usage
-Random Key Generation
+# New 2.1.2
+- Fix `keyGenerater`
+- Edit `Vise and Mastercard is class`
+- Add more color
+-----
+### `mathGenerater(power: "LOW" |"MEDIUM" | "HIGH")`
+- A sample function to generate a math question
 ```js
-const { generateKey } = require('generater.js');
-
-// Generate a random key with custom options
-const key = generateKey(32, {
-  bigWords: true,
-  smallWords: false,
-  removeNumbers: false,
-  split: {
-    split: true,
-    splitLength: 4,
-    inSpace: '-'
-  },
-  startWith: {
-    startWith: true,
-    text: 'Blacklist_'
-  }
-});
-console.log(key); // Outputs a random key
+  const msal = mathGenerater("MEDIUM");
+  console.log(msal.string + ' = ' + msal.number ); //'82 x 23' = 1886
 ```
-Password Generation
+### `argsGenerater(content: string): string[]`
+- Just make a `string` => `string[]`.
 ```js
-const { generatePassword } = require('generater.js');
-
-// Generate passwords with different power levels
-const lowPowerPassword = generatePassword(12, 'LOW');
-const mediumPowerPassword = generatePassword(16, 'MEDIUM');
-const highPowerPassword = generatePassword(20, 'HIGH');
-```
-Phone Number Generation
-```js
-const { generatePhoneNumber } = require('generater.js');
-
-// Generate phone numbers for different countries
-const egyptPhoneNumber = generatePhoneNumber('EGYPT');
-const usaPhoneNumber = generatePhoneNumber('USA');
-const ukPhoneNumber = generatePhoneNumber('UK');
-```
-Random Color Generation
-```js
-const { generateColor } = require('generater.js');
-
-// Generate random colors HEX or RGB
-const blueHexColor = generateColor('BLUE', 'HEX'); ///#color_hex
-const calmRGBColor = generateColor('CALM', 'RGB'); ///rgb(r,g,b)
-```
-
-
-
-OTP (One-Time Password) Generation
-
-```js
-const { generateOTP, verifyOTP } = require('generater.js');
-
-// Generate OTP
-const otpResult = generateOTP({
-  length: 6,
-  includeLetters: false,
-  includeSpecialChars: false,
-  expirationTime: 5 // 5 minutes
-});
-console.log(otpResult.otp);
-
-// Verify OTP
-const verificationResult = verifyOTP(otpResult, userInputOTP);
-console.log(verificationResult.valid);
+ const args = argsGenerater("Hello world");
+ console.log(args); //: [ "Hello", "world" ]
+ console.log(args[0]) //: "Hello"
+ console.log(args[1]) //: "world"
 ```
 
 ## Supported Features

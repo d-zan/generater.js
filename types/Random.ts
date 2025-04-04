@@ -7,4 +7,3 @@ export type ColorsSupport =
   | "RANDOM"
   | "GREEN"
   | "BLUE";
-  

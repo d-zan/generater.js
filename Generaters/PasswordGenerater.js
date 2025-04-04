@@ -1,11 +1,18 @@
 const crypto = require("crypto");
+class GeneraterError extends Error {
+  get name() {
+    return "GeneraterError";
+  }
+}
 /**
- * G- Strong password .
+ * Generate powerful password .
  * @param {number} length - how many word you want?
  * @param {import('../types/Generater').PasswordPower} power - The password power.
  * @returns {string} password
  */
-function generatePassword(length,power) {
+function passwordGenerater(length,power) {
+  if (!length) throw new GeneraterError("[PASSWORD_LENGTH]: length is reqiure");
+  if (!power) throw new GeneraterError("[PASSWORD_POWER]: power is reqiure");
   if (power ==='LOW') {
    let characters = "abcdefghijklmnopqrstuvwxyz0123456789";
 
@@ -38,4 +45,4 @@ function generatePassword(length,power) {
   }
 };
 
-module.exports = generatePassword;
+module.exports = passwordGenerater;

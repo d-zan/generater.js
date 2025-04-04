@@ -27,7 +27,10 @@ export type CountriesSupport =
   | "FRANCE"
   | "UAE"
   | "INDIA"
-  | "AUSTRALIA";
+  | "AUSTRALIA"
+  | "JAPAN"
+  | "BRAZIL" 
+  | "SOUTH AFRICA";
 
 //Domin
 export type Domains =
@@ -173,7 +176,7 @@ export interface OTPResult {
   verify: (inputOTP: string) => {
     isValid: boolean;
     message: string;
-  }; // Verification method
+  }; 
   getRemainingTime: () => number;
 }
 
@@ -186,8 +189,23 @@ export interface OTPVerificationResult {
 export interface EmailOptions {
   prefix: string;
   domains: EmailDomain;
-  addNumber?: boolean;
-  randomizePrefix?: boolean;
+  addNumber?: boolean | false;
+  randomizePrefix?: boolean | false;
   prefixOptions?: string[];
   numberRange?: { min: 1; max: 99 };
 }
+export type MathPower = "LOW" |"MEDIUM" | "HIGH";
+export type MathSign = "-" |"+" | "*" | "/" | undefined;
+export interface Math {
+  string:string;
+  number:number;
+}
+/**
+* 5 [/*-+] 5
+*/
+/**
+* 55 [/*-+] 55
+*/
+ /**
+* 5555 [/*-+] 5555
+*/

@@ -8,26 +8,29 @@ A powerful Node.js library for generating various types of random data, includin
 npm install generater.js
 ```
 ## Features
-- Generate Random Keys
-- Generate Strong Passwords
-- Generate Phone Numbers for Multiple Countries
-- Create Random Colors
-- Generate Email Addresses
-- Create Domain Names
-- Generate Credit Card Details (Visa, Mastercard)
-- One-Time Password (OTP) Generation
+- Generate powerful key
+- Generate strong password
+- Generate phone numbers for multiple countries
+- Generate email addresses
+- Generate credit card details (Visa, Mastercard)
+- Generate custom One-Time-Password (OTP)
+- Create random colors
+- Create domain names
 - And More!
 
-# New 2.1.2
-- Fix `keyGenerater`
+# New 2.2.5
+- Fix Errors , Bugs
 - Edit `Vise and Mastercard is class`
 - Add more color
+- Add more country's phone number
 -----
-### `mathGenerater(power: "LOW" |"MEDIUM" | "HIGH")`
+### `mathGenerater(power: "LOW" |"MEDIUM" | "HIGH" ,sign?: "-" |"+" | "*" | "/" ): Math`
 - A sample function to generate a math question
 ```js
   const msal = mathGenerater("MEDIUM");
-  console.log(msal.string + ' = ' + msal.number ); //'82 x 23' = 1886
+  console.log(msal.string + ' = ' + msal.number ); //'82 x 23' = 1886 (random[-+*/])
+  const msal = mathGenerater("MEDIUM","-");
+  console.log(msal.string + ' = ' + msal.number ); //'50 - 20' = 30 (only[-])
 ```
 ### `argsGenerater(content: string): string[]`
 - Just make a `string` => `string[]`.
@@ -36,6 +39,27 @@ npm install generater.js
  console.log(args); //: [ "Hello", "world" ]
  console.log(args[0]) //: "Hello"
  console.log(args[1]) //: "world"
+```
+### `randomOfArrya(array: any[]): any`
+```js
+let a = [
+  {name1:"Yousef",name2:"Karm"},
+  {name1:"Ali",name2:"Naser"},
+  {name1:"Nawal",name2:"N"},
+];
+const data = randomOfArray(a);
+console.log(data.name1 +' '+ data.name2 + data); // Yousef Naser / Object
+
+a = [1,2,3,4,5,6,7,8,9,10]; 
+const data = randomOfArray(a);
+console.log(data); // 10 / number
+
+a = ["Yousef","Ali","Ahmed","Nawal"];
+const data = randomOfArray(a);
+console.log(data); // Nawal / string
+```
+```js
+const gen = reqiure("generater.js"); \\ ;) 
 ```
 
 ## Supported Features
@@ -50,6 +74,9 @@ npm install generater.js
 - India
 - Australia
 - Canada
+- Japan
+- Brazil 
+- South Africa
 ### Color Types
 - CALM
 - RED

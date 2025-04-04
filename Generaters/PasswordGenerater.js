@@ -6,13 +6,13 @@ class GeneraterError extends Error {
 }
 /**
  * Generate powerful password .
- * @param {number} length - how many word you want?
+ * @param {number} length - How many word you want?
  * @param {import('../types/Generater').PasswordPower} power - The password power.
  * @returns {string} password
  */
 function passwordGenerater(length,power) {
-  if (!length) throw new GeneraterError("[PASSWORD_LENGTH]: length is reqiure");
-  if (!power) throw new GeneraterError("[PASSWORD_POWER]: power is reqiure");
+  if (!length) throw new GeneraterError("[PasswordGenerater]: length is reqiure");
+  if (!power) throw new GeneraterError("[PasswordGenerater]: power is reqiure");
   if (power ==='LOW') {
    let characters = "abcdefghijklmnopqrstuvwxyz0123456789";
 

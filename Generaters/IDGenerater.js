@@ -6,7 +6,7 @@ const transliterate = require('transliteration');
  * @param {string} lastName - like Karm , كرم
  * @returns {string} Generated unique ID
  */
-function generateID(firstName, lastName) {
+function idGenerater(firstName, lastName) {
     
     const translatedFirstName = transliterate.transliterate(firstName);
     const translatedLastName = transliterate.transliterate(lastName);
@@ -18,4 +18,4 @@ function generateID(firstName, lastName) {
 
     return `${firstNameInitial}${lastNameInitial}${randomNum}`;
 }
-module.exports = generateID;
+module.exports = idGenerater;

@@ -38,7 +38,7 @@ class Vise {
     }
     value() {
       const VALID_THRU =
-        "0" + crypto.randomInt(1, 9) + "/" + crypto.randomInt(24, 29);
+        "0" + crypto.randomInt(1, 9) + "/" + crypto.randomInt(25, 29);
       return VALID_THRU;
     }
 }

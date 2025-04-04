@@ -3,4 +3,9 @@ class GeneraterError extends Error {
       return "GeneraterError";
     }
   }
-  module.exports = GeneraterError
+class RandomError extends Error {
+    get name() {
+      return "RandomError";
+    }
+  }
+  module.exports = {GeneraterError,RandomError}

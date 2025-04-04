@@ -9,7 +9,6 @@ export interface GeneraterKeyOptions {
     inSpace: string;
   };
   startWith?: {
-    startWith: boolean;
     text: string;
   };
 }
@@ -32,7 +31,7 @@ export type CountriesSupport =
   | "BRAZIL" 
   | "SOUTH AFRICA";
 
-//Domin
+//Domain
 export type Domains =
   | ".com"
   | ".net"
@@ -120,7 +119,7 @@ export interface DomainOptions {
   end: Domains;
   start: string;
 }
-export type Domain = `${string}${Domains}`;
+export type Domain = `${DomainOptions['start']}${Domains}`;
 export type PasswordPower = "LOW" | "MEDIUM" | "HIGH";
 
 //
@@ -154,38 +153,6 @@ export type EmailDomain =
   | "@dispostable.com"
   | "@trashmail.com";
 
-export interface OTPOptions {
-  length?: number;
-  includeLetters?: boolean;
-  includeSpecialChars?: boolean;
-  expirationTime?: number;
-
-  errorMessages?: {
-    invalidLength?: string;
-    expiredOTP?: string;
-    invalidOTP?: string;
-  };
-}
-
-export interface OTPResult {
-  otp: string;
-  otpId: string;
-  createdAt: Date;
-  expiresAt: Date;
-  config: Required<OTPOptions>;
-  verify: (inputOTP: string) => {
-    isValid: boolean;
-    message: string;
-  }; 
-  getRemainingTime: () => number;
-}
-
-export interface OTPVerificationResult {
-  valid: boolean;
-  message: string;
-  remainingTime: number;
-}
-
 export interface EmailOptions {
   prefix: string;
   domains: EmailDomain;
@@ -194,6 +161,28 @@ export interface EmailOptions {
   prefixOptions?: string[];
   numberRange?: { min: 1; max: 99 };
 }
+
+export interface OTPOptions {
+  length: number;
+  //A-Z
+  includeLetters?: boolean;
+  //-*/)(&^%$#@)
+  includeSpecialChars?: boolean;
+}
+
+export interface OTP {
+  otp: string;
+  otpId: string;
+}
+
+export interface OTPVerificationResult {
+  valid: boolean;
+  message: string;
+  remainingTime: number;
+}
+
+
+
 export type MathPower = "LOW" |"MEDIUM" | "HIGH";
 export type MathSign = "-" |"+" | "*" | "/" | undefined;
 export interface Math {
@@ -201,7 +190,7 @@ export interface Math {
   number:number;
 }
 /**
-* 5 [/*-+] 5
+* 5 [/*-+] 5 = 1/25/0/10
 */
 /**
 * 55 [/*-+] 55

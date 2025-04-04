@@ -1,32 +1,17 @@
-//gen
-const generateKey = require('./Generaters/KeyGenerater');
-const generatePassword = require('./Generaters/PasswordGenerater');
-const generatePhoneNumber = require('./Generaters/PhoneNumberGenerater');
-const generateEmail = require('./Generaters/e-mailGenerater');
-const generateDomain = require('./Generaters/domainsGenerater');
-const generateID = require('./Generaters/IDGenerater');
-const { generateOTP, verifyOTP } = require('./Generaters/OTPGenerater');
-const argsGenerater = require('./Generaters/argsGenerater');
-const mathGenerater = require('./Generaters/mathGenerater');
-const Mastercard = require('./Generaters/Credit Card/mastercardGenerater');
-const Vise = require('./Generaters/Credit Card/viseGenerater');
-///random
-const randomColor = require('./Random/RandomColor');
-const randomNumber = require('./Random/randomNumber');
 
-module.exports = {
-    generateKey,
-    generatePassword,
-    generatePhoneNumber,
-    generateEmail,
-    generateDomain,
-    generateID,
-    argsGenerater,
-    mathGenerater,
-    randomColor,
-    randomNumber,
-    generateOTP,
-    verifyOTP,
-    Mastercard,
-    Vise
-};
+//Generater
+exports.MasterCard = require("./Generaters/Cards/mastercardGenerater");
+exports.Vise = require("./Generaters/Cards/viseGenerater");
+exports.argsGenerater = require("./Generaters/argsGenerater");
+exports.domainGenerater = require("./Generaters/domainsGenerater");
+exports.emailGenerater = require("./Generaters/emailGenerater");
+exports.idGenerater = require("./Generaters/IDGenerater");
+exports.keyGenerater = require("./Generaters/KeyGenerater");
+exports.mathGenerater = require("./Generaters/mathGenerater");
+exports.otpGenerater = require("./Generaters/OTPGenerater");
+exports.passwordGenerater = require("./Generaters/PasswordGenerater");
+exports.phoneNumberGenerater = require("./Generaters/PhoneNumberGenerater");
+//Random
+exports.randomColor = require("./Random/randomColor");
+exports.randomNumber = require("./Random/randomNumber");
+exports.randomOfArray = require("./Random/randomOfArray");

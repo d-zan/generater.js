@@ -7,11 +7,11 @@ class GeneraterError extends Error {
 /**
  * Generate a math question string & number
  * @param {import("../types/Generater").MathPower} power - A power of question
-* @param {import("../types/Generater").MathSign} [math] - Choice the question sign
-* @returns {import("../types/Generater").Math}
+ * @param {import("../types/Generater").MathSign} [math] - Choice the question sign
+ * @returns {import("../types/Generater").Math}
  */
 function mathGenerater(power,math) {
-  if(!power) throw new GeneraterError("[MATH_POWER]: Math power is require");
+  if(!power) throw new GeneraterError("[MathGenerater]: Math power is require");
   if (math) {
     if (power === "LOW") {
       return msalFunc(math, 1, 9);

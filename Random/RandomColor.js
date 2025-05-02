@@ -15,8 +15,8 @@ function randomColor(color, HexOrRGB) {
   if (!color) throw new RandomError("[RandomColor]: Please provide a color.");
     const colorData = ColorsData[`${color}_${HexOrRGB}`];
     if (!colorData) throw new RandomError(`[RandomColor]: Color ${color} not supported.`);
-    const color = colorData[Math.floor(Math.random() * colorData.length)];
-      return color;
+    const colorRa = colorData[Math.floor(Math.random() * colorData.length)];
+      return colorRa;
 }
 
 module.exports = randomColor;

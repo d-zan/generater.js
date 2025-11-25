@@ -1,6 +1,6 @@
 {
   "name": "generater.js",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "description": "A powerful Node.js library for generating various types of random data, including keys, passwords, phone numbers, emails, and more.",
   "main": "index.js",
   "scripts": {

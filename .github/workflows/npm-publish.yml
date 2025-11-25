@@ -1,33 +1,71 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
-name: Node.js Package
+name: Auto Publish to npm
 
 on:
-  release:
-    types: [created]
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+      - 'docs/**'
+      - '.gitignore'
+      - '.vscode'
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm ci
-      - run: npm test
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      # Checkout the code
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish
+          fetch-depth: 0
+
+      # Setup Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          registry-url: 'https://registry.npmjs.org'
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Check if version changed
+      - name: Check version changes
+        id: check
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          PUBLISHED_VERSION=$(npm view $(node -p "require('./package.json').name") version 2>/dev/null || echo "0.0.0")
+          echo "package-version=$PACKAGE_VERSION" >> $GITHUB_OUTPUT
+          echo "published-version=$PUBLISHED_VERSION" >> $GITHUB_OUTPUT
+          if [ "$PACKAGE_VERSION" != "$PUBLISHED_VERSION" ]; then
+            echo "version-changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "version-changed=false" >> $GITHUB_OUTPUT
+          fi
+      
+      # إنشاء ملف .npmignore لاستبعاد الملفات المحددة
+      - name: Create .npmignore file
+        if: steps.check.outputs.version-changed == 'true'
+        run: |
+          cat << EOF > .npmignore
+          # استبعاد الملفات المطلوبة
+          README.md
+          docs/
+          .gitignore
+          .vscode/
+          .github/
+          .gitattributes 
+          test.js
+          # يمكنك إضافة ملفات أخرى هنا
+          # مثال: tests/
+          EOF
+        shell: bash
+
+      # Publish to npm if version changed
+      - name: Publish to npm
+        if: steps.check.outputs.version-changed == 'true'
+        run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

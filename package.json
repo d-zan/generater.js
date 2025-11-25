@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Y.Karm AKA DZAN",
+  "author": "DZAN",
   "repository": {
     "type": "git",
     "url": "https://github.com/d-zan/generater.js.git"
